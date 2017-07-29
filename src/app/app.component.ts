@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Click one of the things';
+
+  numbers = [1, 2, 3, 4, 5];
+
+  handleClick(number) {
+    this.title = `You clicked ${number}`;
+  }
 }
