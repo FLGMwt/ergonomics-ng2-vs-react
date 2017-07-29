@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AgentService } from './agent.service';
 
 @Component({
@@ -6,17 +6,20 @@ import { AgentService } from './agent.service';
   templateUrl: './agent-selector.component.html',
   styleUrls: ['./agent-selector.component.css']
 })
-export class AgentSelectorComponent {
+export class AgentSelectorComponent implements OnInit {
 
   agents: Array<string>;
 
   constructor(
-    agentService: AgentService,
-  ) {
-    this.agents = agentService.getAgents();
-  }
+    private agentService: AgentService,
+  ) { }
 
-  title = 'Click one of the things';
+  title = 'Select an agent';
+
+  // *cannot* be done in the constructor because the spy has to happen after instantiation
+  ngOnInit() {
+    this.agents = this.agentService.getAgents();
+  }
 
   handleClick(agentIndex: number) {
     const agentName = this.agents[agentIndex];
