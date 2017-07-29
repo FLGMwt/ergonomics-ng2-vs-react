@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AgentSelectorComponent } from './agent-selector.component';
+import { AgentService } from './agent.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AgentSelectorComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AgentService,
+  ],
+  bootstrap: [AgentSelectorComponent]
 })
 export class AppModule { }

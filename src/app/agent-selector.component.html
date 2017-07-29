@@ -1,0 +1,14 @@
+<div>
+  <h1>{{title}}</h1>
+  <ul>
+    <li
+      *ngFor="let agent of agents; let i=index"
+      style="font-size: 40px; border: 1px solid black"
+      >
+      {{agent}}
+      <button (click)="handleClick(i)">
+        Select this agent
+      </button>
+    </li>
+  </ul>
+</div>
