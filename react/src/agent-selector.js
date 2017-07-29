@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getAgents } from './agent-service';
 
-class AgentSelector extends Component {
+export default class AgentSelector extends Component {
 
   state = {
     title: 'Select an agent',
@@ -48,5 +48,3 @@ class AgentSelector extends Component {
     );
   }
 }
-
-export default AgentSelector;
