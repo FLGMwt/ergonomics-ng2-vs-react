@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.agent {
+  font-size: 40px;
+  border: 1px solid black;
+}

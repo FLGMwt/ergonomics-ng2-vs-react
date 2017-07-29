@@ -9,12 +9,11 @@ import { AgentService } from './agent.service';
 export class AgentSelectorComponent implements OnInit {
 
   agents: Array<string>;
+  title = 'Select an agent';
 
   constructor(
     private agentService: AgentService,
   ) { }
-
-  title = 'Select an agent';
 
   // *cannot* be done in the constructor because the spy has to happen after instantiation
   ngOnInit() {
