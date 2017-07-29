@@ -9,6 +9,7 @@ import { AgentService } from './agent.service';
 export class AgentSelectorComponent implements OnInit {
 
   agents: Array<string>;
+  selectedAgent: string;
   title = 'Select an agent';
 
   constructor(
@@ -21,7 +22,9 @@ export class AgentSelectorComponent implements OnInit {
   }
 
   handleClick(agentIndex: number) {
+    console.log('click!');
     const agentName = this.agents[agentIndex];
+    this.selectedAgent = agentName;
     this.title = `You selected agent: ${agentName}`;
   }
 }

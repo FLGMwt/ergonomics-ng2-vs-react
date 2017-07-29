@@ -4,6 +4,7 @@
     <li
       *ngFor="let agent of agents; let i=index"
       class="agent"
+      [ngClass]="{selected: agent === selectedAgent}"
       >
       {{agent}}
       <button (click)="handleClick(i)">
