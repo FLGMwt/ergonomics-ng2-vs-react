@@ -10,11 +10,10 @@ let agentService, AgentSelector;
 
 describe("AgentSelector", function() {
   beforeEach(() => {
-    AgentSelector = require('../agent-selector');
+    AgentSelector = require('../agent-selector').default;
 
     agentService = require('../agent-service');
     stub(agentService, 'getAgents').returns(['Hi!']);
-    l(agentService.getAgents());
   });
 
   it("contains spec with an expectation", function() {
