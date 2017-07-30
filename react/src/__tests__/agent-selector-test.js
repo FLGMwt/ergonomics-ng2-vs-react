@@ -1,9 +1,7 @@
 import React from 'react';
-import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-import { shallow, mount } from 'enzyme';
+import { expect } from 'chai';
+import { shallow} from 'enzyme';
 import { stub } from 'sinon';
-chai.use(chaiEnzyme());
 
 import AgentList from '../agent-list';
 
