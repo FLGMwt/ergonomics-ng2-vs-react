@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { stub } from 'sinon';
+import AgentList from '../agent-list';
 
-const l = console.log;
 let AgentSelector, getAgentsStub;
 
 describe('AgentSelector', function() {
@@ -32,21 +32,22 @@ describe('AgentSelector', function() {
   });
 
   it('should render list of agents', function() {
-    const testAgent = 'Tess Tagent';
-    getAgentsStub.returns([testAgent]);
+    const testAgents = ['Tess Tagent'];
+    getAgentsStub.returns(testAgents);
 
     const sut = shallow(<AgentSelector />);
 
-    const agent = sut.find('li');
-    expect(agent.text()).to.contain(testAgent);
+    const agentList = sut.find(AgentList);
+    expect(agentList.length).to.equal(1);
+    expect(agentList.prop('agents')).to.equal(testAgents);
   });
 
-  it('should update the title when an agent is clicked', function() {
+  it('when an agent is selected, the header displays them', function() {
     const testAgent = 'Tess Tagent';
     getAgentsStub.returns([testAgent]);
 
     const sut = shallow(<AgentSelector />);
-    sut.find('button').simulate('click');
+    sut.instance().handleClick(0)
 
     const header = sut.find('h1');
     expect(header.text()).to.equal(`You selected agent: ${testAgent}`);
