@@ -1,9 +1,7 @@
 import React from 'react';
-import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-import { shallow, mount } from 'enzyme';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
 import { stub } from 'sinon';
-chai.use(chaiEnzyme());
 
 const l = console.log;
 let AgentSelector, getAgentsStub;
@@ -13,7 +11,7 @@ describe('AgentSelector', function() {
     AgentSelector = require('../agent-selector').default;
 
     const agentService = require('../agent-service');
-    getAgentsStub = stub(agentService, 'getAgents');
+    getAgentsStub = stub(agentService, 'getAgents').returns([]);
   });
 
   afterEach(() => {
@@ -37,7 +35,7 @@ describe('AgentSelector', function() {
     const testAgent = 'Tess Tagent';
     getAgentsStub.returns([testAgent]);
 
-    const sut = mount(<AgentSelector />);
+    const sut = shallow(<AgentSelector />);
 
     const agent = sut.find('li');
     expect(agent.text()).to.contain(testAgent);
@@ -47,7 +45,7 @@ describe('AgentSelector', function() {
     const testAgent = 'Tess Tagent';
     getAgentsStub.returns([testAgent]);
 
-    const sut = mount(<AgentSelector />);
+    const sut = shallow(<AgentSelector />);
     sut.find('button').simulate('click');
 
     const header = sut.find('h1');
