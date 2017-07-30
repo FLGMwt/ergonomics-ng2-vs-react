@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 import { getAgents } from './agent-service';
 
+const AgentList = ({agents, selectedAgent, onSelectAgent}) => {
+  const agentStyle = agent => ({
+    fontSize: 40,
+    border: '1px solid',
+    backgroundColor: agent === selectedAgent ? 'green' : 'inherit',
+  });
+  return (
+    <ul>
+      {agents.map((agent, i) =>
+        <li key={agent} style={agentStyle(agent)} >
+          {agent}
+          <button onClick={() => onSelectAgent(i)}>
+            Select this agent
+          </button>
+        </li>
+      )}
+    </ul>
+  )
+}
+
 export default class AgentSelector extends Component {
 
   state = {
@@ -24,26 +44,16 @@ export default class AgentSelector extends Component {
 
   render() {
     const { agents, title, selectedAgent } = this.state;
-    const agentStyle = agent => ({
-      fontSize: 40,
-      border: '1px solid',
-      backgroundColor: agent === selectedAgent ? 'green' : 'inherit',
-    });
     return (
       <div>
         <h1 style={{display: 'flex', justifyContent: 'center'}}>
           {title}
         </h1>
-        <ul>
-          {agents.map((agent, i) =>
-            <li key={agent} style={agentStyle(agent)} >
-              {agent}
-              <button onClick={() => this.handleClick(i)}>
-                Select this agent
-              </button>
-            </li>
-          )}
-        </ul>
+        <AgentList
+          selectedAgent={selectedAgent}
+          agents={agents}
+          onSelectAgent={this.handleClick}
+          />
       </div>
     );
   }
