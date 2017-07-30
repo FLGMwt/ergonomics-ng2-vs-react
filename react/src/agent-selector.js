@@ -1,25 +1,6 @@
 import React, { Component } from 'react';
 import { getAgents } from './agent-service';
-
-const AgentList = ({agents, selectedAgent, onSelectAgent}) => {
-  const agentStyle = agent => ({
-    fontSize: 40,
-    border: '1px solid',
-    backgroundColor: agent === selectedAgent ? 'green' : 'inherit',
-  });
-  return (
-    <ul>
-      {agents.map((agent, i) =>
-        <li key={agent} style={agentStyle(agent)} >
-          {agent}
-          <button onClick={() => onSelectAgent(i)}>
-            Select this agent
-          </button>
-        </li>
-      )}
-    </ul>
-  )
-}
+import AgentList from './agent-list';
 
 export default class AgentSelector extends Component {
 
