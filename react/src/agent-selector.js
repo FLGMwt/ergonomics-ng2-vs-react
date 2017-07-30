@@ -6,13 +6,7 @@ export default class AgentSelector extends Component {
 
   state = {
     title: 'Select an agent',
-    agents: [],
-  }
-
-  componentDidMount() {
-    this.setState({
-      agents: getAgents(),
-    });
+    agents: getAgents(),
   }
 
   handleClick = agentIndex => {
