@@ -1,15 +1,8 @@
 <div>
   <h1 class="header">{{title}}</h1>
-  <ul>
-    <li
-      *ngFor="let agent of agents; let i=index"
-      class="agent"
-      [ngClass]="{selected: agent === selectedAgent}"
-      >
-      {{agent}}
-      <button (click)="handleClick(i)">
-        Select this agent
-      </button>
-    </li>
-  </ul>
+  <agent-list
+    [agents]="agents"
+    [selectedAgent]="selectedAgent"
+    (onAgentClicked)="handleAgentSelected($event)">
+  </agent-list>
 </div>

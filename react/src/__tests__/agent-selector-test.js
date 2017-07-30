@@ -16,7 +16,7 @@ describe('AgentSelector', function() {
 
   afterEach(() => {
     getAgentsStub.restore();
-  })
+  });
 
   it('create the app', function() {
     const sut = shallow(<AgentSelector />);

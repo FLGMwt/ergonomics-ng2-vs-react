@@ -1,0 +1,8 @@
+.agent {
+  font-size: 40px;
+  border: 1px solid;
+}
+
+.agent.selected {
+  background-color: green;
+}

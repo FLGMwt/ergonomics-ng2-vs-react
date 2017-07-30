@@ -38,9 +38,9 @@ describe('AgentList', function() {
     const selectHandler = stub();
 
     const sut = shallow(<AgentList onSelectAgent={selectHandler} agents={[testAgent]} />);
-
     const agentSelector = sut.find('button');
     agentSelector.simulate('click');
+
     expect(selectHandler).to.have.been.calledWith(0);
   });
 

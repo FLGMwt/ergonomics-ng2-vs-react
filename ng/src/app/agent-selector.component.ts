@@ -16,13 +16,12 @@ export class AgentSelectorComponent implements OnInit {
     private agentService: AgentService,
   ) { }
 
-  // *cannot* be done in the constructor because the spy has to happen after instantiation
+  // *** *cannot* be done in the constructor because the spy has to happen after instantiation (testing code drives implementation)
   ngOnInit() {
     this.agents = this.agentService.getAgents();
   }
 
-  handleClick(agentIndex: number) {
-    console.log('click!');
+  handleAgentSelected(agentIndex: number) {
     const agentName = this.agents[agentIndex];
     this.selectedAgent = agentName;
     this.title = `You selected agent: ${agentName}`;
