@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AgentSelectorComponent } from './agent-selector.component';
 import { AgentService } from './agent.service';
+import { AgentListComponent } from './agent-list.component';
 
 @NgModule({
   declarations: [
-    AgentSelectorComponent
+    AgentSelectorComponent,
+    AgentListComponent,
   ],
   imports: [
     BrowserModule

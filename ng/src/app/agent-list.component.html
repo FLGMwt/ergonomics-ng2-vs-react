@@ -1,0 +1,12 @@
+<ul>
+  <li
+    *ngFor="let agent of agents; let i=index"
+    class="agent"
+    [ngClass]="{selected: agent === selectedAgent}"
+    >
+    {{agent}}
+    <button (click)="onAgentClicked.emit(i)">
+      Select this agent
+    </button>
+  </li>
+</ul>
