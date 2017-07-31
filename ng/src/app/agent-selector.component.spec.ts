@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AgentSelectorComponent } from './agent-selector.component';
 import { AgentService } from './agent.service';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 class AgentServiceStub {
   getAgents() { }
@@ -19,7 +18,6 @@ describe('AppComponent', () => {
       providers: [
         { provide: AgentService, useClass: AgentServiceStub }
       ],
-      // schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AgentSelectorComponent);
